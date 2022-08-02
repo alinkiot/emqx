@@ -51,6 +51,9 @@ cd emqx
 make
 _build/emqx/rel/emqx/bin console
 ```
+```bash
+BUILD_WITHOUT_QUIC=1 make
+```
 
 For earlier versions, release has to be built from another repo.
 
