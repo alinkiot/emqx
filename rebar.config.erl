@@ -257,7 +257,8 @@ relx_apps(ReleaseType) ->
     , {ekka, load}
     , {emqx_plugin_libs, load}
     , observer_cli
-    , alinkcore
+    , {alinkcore, load}
+    , {alinkdata, load}
     ]
     ++ [emqx_modules || not is_enterprise()]
     ++ [emqx_license || is_enterprise()]
@@ -352,6 +353,7 @@ relx_overlay(ReleaseType) ->
     , {copy, "_build/default/lib/cuttlefish/cuttlefish", "bin/cuttlefish"}
     , {copy, "_build/default/lib/cuttlefish/cuttlefish", "bin/cuttlefish-{{release_version}}"}
     , {copy, "priv/emqx.schema", "releases/{{release_version}}/"}
+    , {copy, "_build/emqx/conf/plugins/*", "etc/plugins/"}
     ] ++ case is_enterprise() of
              true -> ee_etc_overlay(ReleaseType);
              false -> etc_overlay(ReleaseType)
