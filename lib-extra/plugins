@@ -1,5 +1,8 @@
 {erlang_plugins,
   [ {emqx_plugin_template, {git, "https://github.com/emqx/emqx-plugin-template", {tag, "4.3.0"}}}
+      , {alinkcore, {git, "https://github.com/alinkiot/alinkcore.git", {branch, "dev"}}}
+      , {alinkdata, {git, "https://github.com/alinkiot/alinkdata.git", {branch, "dev"}}}
+      , {alinkiot_tdengine, {git, "https://github.com/alinkiot/alinkiot_tdengine.git", {branch, "main"}}}
   ]
 }.
 
@@ -7,3 +10,7 @@
   [ {emqx_elixir_plugin, {git, "https://github.com/emqx/emqx-elixir-plugin.git", {branch, "3.0.0"}}}
   ]
 }.
+
+
+
+

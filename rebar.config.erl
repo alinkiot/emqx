@@ -29,9 +29,9 @@ extra_deps() ->
     ErlPlugins0 = proplists:get_value(erlang_plugins, Proplist),
     ExPlugins0 = proplists:get_value(elixir_plugins, Proplist),
     Filter = string:split(os:getenv("EMQX_EXTRA_PLUGINS", ""), ",", all),
-    ErlPlugins = filter_extra_deps(ErlPlugins0, Filter),
+%%    ErlPlugins = filter_extra_deps(ErlPlugins0, Filter),
     ExPlugins = filter_extra_deps(ExPlugins0, Filter),
-    {ExPlugins =/= [], ErlPlugins ++ ExPlugins}.
+    {ExPlugins =/= [], ErlPlugins0 ++ ExPlugins}.
 
 filter_extra_deps(AllPlugins, ["all"]) ->
     AllPlugins;
@@ -257,8 +257,6 @@ relx_apps(ReleaseType) ->
     , {ekka, load}
     , {emqx_plugin_libs, load}
     , observer_cli
-    , {alinkcore, load}
-    , {alinkdata, load}
     ]
     ++ [emqx_modules || not is_enterprise()]
     ++ [emqx_license || is_enterprise()]
@@ -282,7 +280,7 @@ is_app(Name) ->
     end.
 
 relx_plugin_apps(ReleaseType) ->
-    [ emqx_retainer
+    [emqx_retainer
     , emqx_management
     , emqx_dashboard
     , emqx_bridge_mqtt
