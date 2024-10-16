@@ -1,0 +1,79 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "HTTP API",
+    "version": "0.1.0",
+    "description": "HTTP API",
+    "termsOfService": "http://www.uzyiot.com",
+    "contact": {
+      "name": "support",
+      "email": "529459515@qq.com"
+    }
+  },
+  "externalDocs": {
+    "description": "doc",
+    "url": "http://doc.uzyiot.com"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "basePath": "/iotapi",
+  "securityDefinitions": {
+    "APIKeyHeader": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "token"
+    },
+    "BasicAuth": {
+      "type": "basic"
+    },
+    "CookieAuth": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "token"
+    },
+    "APIKeyQueryParam": {
+      "type": "apiKey",
+      "in": "query",
+      "name": "token"
+    }
+  },
+  "security": [
+    {
+      "APIKeyHeader": []
+    },
+    {
+      "BasicAuth": []
+    },
+    {
+      "APIKeyQueryParam": []
+    },
+    {
+      "CookieAuth": []
+    }
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "tags": [
+  ],
+  "definitions": {
+    "Error": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "状态码",
+          "type": "number"
+        },
+        "error": {
+          "description": "错误提示",
+          "type": "string"
+        }
+      }
+    }
+  }
+}
