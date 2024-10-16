@@ -121,7 +121,6 @@ common_compile_opts() ->
 prod_compile_opts() ->
     [ compressed
     , deterministic
-    , warnings_as_errors
     | common_compile_opts()
     ].
 
