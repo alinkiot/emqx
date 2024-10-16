@@ -317,13 +317,7 @@ relx_plugin_apps_extra() ->
 
 
 relx_extra_import_plugins() ->
-    case filelib:is_file("extra_import_plugins") of
-        true ->
-            {ok, Plugins} = file:consult("extra_import_plugins"),
-            lists:flatten(Plugins);
-        false ->
-            []
-    end.
+    [alinkiot, alinkdata, alinkcore, alinkalarm, alinkiot_tdengine].
 
 relx_overlay(ReleaseType) ->
     [ {mkdir, "log/"}
