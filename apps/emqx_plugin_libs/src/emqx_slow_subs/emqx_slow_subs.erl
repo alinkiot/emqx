@@ -18,8 +18,8 @@
 
 -behaviour(gen_server).
 
--include_lib("include/emqx.hrl").
--include_lib("include/logger.hrl").
+-include_lib("emqx/include/emqx.hrl").
+-include_lib("emqx/include/logger.hrl").
 -include_lib("emqx_plugin_libs/include/emqx_slow_subs.hrl").
 
 -logger_header("[SLOW Subs]").
