@@ -766,12 +766,12 @@ classify([Packet|More], Packets, Cmds, Events)
     classify(More, [Packet|Packets], Cmds, Events);
 classify([Cmd = {active, _}|More], Packets, Cmds, Events) ->
     classify(More, Packets, [Cmd|Cmds], Events);
-classify([Cmd = {shutdown, _Reason}|More], Packets, Cmds, Events) ->
-    classify(More, Packets, [Cmd|Cmds], Events);
+classify([{shutdown, _Reason}|More], Packets, Cmds, Events) ->
+    classify(More, Packets, [close|Cmds], Events);
 classify([Cmd = close|More], Packets, Cmds, Events) ->
     classify(More, Packets, [Cmd|Cmds], Events);
 classify([Cmd = {close, _Reason}|More], Packets, Cmds, Events) ->
-    classify(More, Packets, [Cmd|Cmds], Events);
+    classify(More, Packets, [close|Cmds], Events);
 classify([Event|More], Packets, Cmds, Events) ->
     classify(More, Packets, Cmds, [Event|Events]).
 
