@@ -36,7 +36,7 @@
 start(_Type, _Args) ->
     set_backtrace_depth(),
     print_otp_version_warning(),
-    print_banner(),
+    %% print_banner(),
     %% Load application first for ekka_mnesia scanner
     _ = load_ce_modules(),
     ekka:start(),
@@ -50,7 +50,7 @@ start(_Type, _Args) ->
     _ = emqx_plugins:load(),
     _ = start_ce_modules(),
     register(emqx, self()),
-    print_vsn(),
+    %% print_vsn(),
     {ok, Sup}.
 
 prep_stop(_State) ->
